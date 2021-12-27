@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+requests_html
+asyncio
+jinja2
+nest_asyncio

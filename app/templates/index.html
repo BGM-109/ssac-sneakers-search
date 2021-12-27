@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>크림 + 스탁엑스 검색이</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                크림 + 스탁엑스 검색이
+            </h1>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <form class="box" id="search_form" action="/search">
+                <div class="field">
+                    <label class="label">모델명</label>
+                    <div class="control">
+                        <input class="input" type="search" placeholder="모델명을 입력해주세요" id="search_input" name="q">
+                    </div>
+                </div>
+            
+                <button class="button is-primary" type="submit">검색</button>
+            </form>
+        </div>
+        
+    </section>
+    <section class="section">
+        <div class="container columns is-multiline">
+            {% for sneakers in search_list %}
+            <div class="column is-half">
+                <div class="box">
+                    <figure class="image is-128x128">
+                        <img src="{{sneakers.thumbnail_url}}">
+                    </figure>
+                    <h1>{{sneakers.name}}</h1>
+                    <h3>Kream</h3>
+                    <p>최근거래가 {{sneakers.recent_price}}</p>
+                    <p>즉시구매가 {{sneakers.buy}}</p>
+                    <p>즉시판매가 {{sneakers.sell}}</p>
+                    <h3>Stockx</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
